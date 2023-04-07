@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logout, resetNotifications } from '../features/userSlice';
 import './navigation.css'
 import axios from '../axios';
+import log from './log.png'
+import Topbar from './Topbar';
 
 function Navigation() {
 
@@ -31,7 +33,8 @@ function Navigation() {
     if (unreadNotifications > 0) axios.post(`/users/${user._id}/updateNotifications`);
 }
   return (
-
+    <>
+    <Topbar/>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       {/* <!-- Container wrapper --> */}
       <div class="container-fluid">
@@ -51,26 +54,23 @@ function Navigation() {
         {/* <!-- Collapsible wrapper --> */}
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           {/* <!-- Navbar brand --> */}
-          <a class="navbar-brand mt-2 mt-lg-0" href="#">
-            <img
-              src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
-              height="15"
-              alt="MDB Logo"
-              loading="lazy"
-            />
-          </a>
+
+          <Link class="navbar-brand mt-2 mt-lg-0" to="/">
+            <img src={log} alt='log' style={{ height: 50, width: 60}}/>
+              
+          </Link>
           {/* <!-- Left links --> */}
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Dashboard</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Team</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Projects</a>
-            </li>
-          </ul>
+          <div>
+      
+            </div>
+          <div class="input-group">
+            <div class="form-outline">
+              <input type="search" id="form1" class="form-control" />
+            </div>
+            <button type="button" class="btn btn-primary">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
           {/* <!-- Left links --> */}
         </div>
         {/* <!-- Collapsible wrapper --> */}
@@ -176,6 +176,7 @@ function Navigation() {
                 )}
             </div>
     </nav>
+    </>
   );
 }
 

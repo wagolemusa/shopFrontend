@@ -64,3 +64,55 @@
     font: bold 0.4em sans-serif;
 }
 
+.top-nav {
+    background-color: rgb(20, 206, 45);
+    padding-top: 10px;
+    padding-bottom: 5px;
+    font-weight: 600;
+}
+
+
+.top-nav p {
+    margin-bottom: 0;
+    display: inline-block;
+    margin-left: 20px;
+    color: #ffffff;
+}
+
+.social-links i {
+    width: 34px;
+    height: 34px;
+    background-color: rgba(255, 255, 255, 0.3);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffffff;
+    font-size: 20px;
+    border-radius: 100%;
+    
+}
+
+
+@media only screen and (max-width: 600px) {
+    .top-nav p {
+        margin-bottom: 0;
+        display: inline-block;
+        margin-left: 10px;
+        color: #ffffff;
+    }
+    .social-links i{
+        /* float: right; */
+        display: none;
+      }
+
+    .top-nav p{
+        font-size: 12px;
+    }
+    .top-nav {
+        padding-top: -8px;
+        padding-bottom: 2px;
+        font-weight: 600;
+        height: 50px;
+    }
+
+}
