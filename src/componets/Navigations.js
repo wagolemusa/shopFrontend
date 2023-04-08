@@ -35,44 +35,31 @@ function Navigation() {
   return (
     <>
     <Topbar/>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      {/* <!-- Container wrapper --> */}
-      <div class="container-fluid">
-        {/* <!-- Toggle button --> */}
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-mdb-toggle="collapse"
-          data-mdb-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <i class="fas fa-bars"></i>
-        </button>
-
-        {/* <!-- Collapsible wrapper --> */}
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          {/* <!-- Navbar brand --> */}
-
-          <Link class="navbar-brand mt-2 mt-lg-0" to="/">
-            <img src={log} alt='log' style={{ height: 50, width: 60}}/>
+    <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+            <Link class="navbar-brand mt-2 mt-lg-0" to="/">
+            <img src={log} alt='log'/>
               
           </Link>
+        {/* <!-- Collapsible wrapper --> */}
+          {/* <!-- Navbar brand --> */}
+
+          
           {/* <!-- Left links --> */}
-          <div>
+       
+            <form class="d-flex input-group w-auto">
+                <input
+                    type="search"
+                    class="form-control rounded"
+                    placeholder="Search"
+                    aria-label="Search"
+                    aria-describedby="search-addon"
+                />
+                <span class="input-group-text border-0" id="search-addon">
+                    <i class="fas fa-search"></i>
+                </span>
+                </form>
       
-            </div>
-          <div class="input-group">
-            <div class="form-outline">
-              <input type="search" id="form1" class="form-control" />
-            </div>
-            <button type="button" class="btn btn-primary">
-              <i class="fas fa-search"></i>
-            </button>
-          </div>
-          {/* <!-- Left links --> */}
-        </div>
         {/* <!-- Collapsible wrapper --> */}
 
 
@@ -82,7 +69,7 @@ function Navigation() {
 
           {/* if there is no user */}
           {!user && (
-            <div>
+            <div className='loginButton'>
               <Link to="/login">Login</Link>
             </div>
 
