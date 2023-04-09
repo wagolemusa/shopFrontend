@@ -1,22 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-function ProductPreview({ _id, name, description, price, pictures, category}) {
+import '../pages/Home.css'
+function ProductPreview({ _id, name,  price, pictures, category}) {
     return (
         <>
-            <div className="conatiner">
+          
                 
-                <div class="card">
+                <div class="card1">
                     <Link to={`/product/${_id}`} style={{cursor: "pointer", width: "13rem", margin: "1"}}>
                         <img src={pictures[0].url} class="card-img-top" alt="Fissure in Sandstone" />
-                        <div class="card-body">
-                            <h5 class="card-title">{name}</h5>
-                            <p class="card-text">{description}</p>
-                            <a href="#!" class="btn btn-primary">{category}</a>
+                      
+                            <h5 class="cardTitel">{name}</h5>
+                        
+                        <div className="price"> 
+                            <button type="button" class="btn btn-rounded ">UGX {price}</button>
                         </div>
+                        {/* <div className="price1"> 
+                            <button type="button" class="btn btn-rounded ">{category}</button>
+                        </div> */}
                     </Link>
                 </div>
-            </div>
+            
         </>
     )
 }

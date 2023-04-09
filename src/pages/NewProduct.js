@@ -5,6 +5,8 @@ import { useCreateProductMutation } from "../services/appApi";
 import axios from '../axios'
 import './NewProduct.css'
 
+
+
 function NewProduct(){
     const [name, setName] =  useState("")
     const [description, setDescription ] = useState("")
@@ -41,20 +43,38 @@ function NewProduct(){
         });
     }
 
-    function showWidget(){
-        const widget = window.cloudinary.createUploadWidget(
+    // function showWidget(){
+    //     const widget = window.cloudinary.createUploadWidget(
+    //         {
+    //             cloudName: "xycoders",
+    //             uploadPreset: "ytvtzs3m",
+    //         },
+    //         (error, result) => {
+    //             if (!error && result.event === "success") {
+    //                 setImages((prev) => [...prev, { url: result.info.url, public_id: result.info.public_id}])
+    //             }
+    //         }
+    //     );
+    //     widget.open()
+    // }
+
+
+
+    function showWidget() {
+        let widget = window.cloudinary.createUploadWidget(
             {
                 cloudName: "xycoders",
                 uploadPreset: "ytvtzs3m",
             },
             (error, result) => {
                 if (!error && result.event === "success") {
-                    setImages((prev) => [...prev, { url: result.info.url, public_id: result.info.public_id}])
+                    setImages((prev) => [...prev, { url: result.info.url, public_id: result.info.public_id }]);
                 }
             }
         );
-        widget.open()
+        widget.open();
     }
+
 
     return(
        <>

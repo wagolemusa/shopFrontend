@@ -1,35 +1,56 @@
 import axios from "../axios";
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch,  } from "react-redux";
 import { Link } from "react-router-dom";
 import categories from "../Categories";
 import './Home.css'
-import { updateProducts } from "../features/productSlice";
+// import { updateProducts } from "../features/productSlice";
 import ProductPreview from '../componets/ProductPreview'
 
 const Home = () => {
 
     const dispatch = useDispatch()
-    const products = useSelector((state) => state.products);
+    // const products = useSelector((state) => state.products);
     // const lastProducts = products.toString().slice(0, 8);
 
-    console.log(products)
+    const [products, setProducts] = useState([])
+    const [loading, setLoading ] = useState(false);
+
+    console.log("ppp", products)
 
     useEffect(() => {
-        axios.get('/products').then(({ data }) => dispatch(updateProducts(data)));
+        setLoading(true);
+        axios
+            .get('/products')
+            .then(({ data }) => {
+                setLoading(false);
+                setProducts(data);
+            })
+            .catch((e) => {
+                setLoading(false);
+                console.log(e.message);
+            });
     }, []);
+
+
+    // useEffect(() => {
+    //     axios.get('/products').then(({ data }) => dispatch(updateProducts(data)));
+    // }, []);
     return (
         <div>
-            <img src=" https://res.cloudinary.com/learn-code-10/image/upload/v1653947013/yqajnhqf7usk56zkwqi5.png" className="home-banner" />
-            <div className="featured-product-container contaniner mt-4">
-                <h4>Last products</h4>
+            <div className="container-fluid">
+            {/* <img src=" https://res.cloudinary.com/learn-code-10/image/upload/v1653947013/yqajnhqf7usk56zkwqi5.png" className="home-banner" /> */}
+            <div className="featured-product-container  mt-4">
+            
                 {/* list product here */}
                 <div className="row">
-
-                    {products.map((product) => (
+                   {
+                    products.map((product) => (
+                         <div className="col-md-3">
                         <ProductPreview {...product} />
-                    )) }
-                    
+                        </div>
+                        )) }
+
                 </div>
 
                 <div>
@@ -37,6 +58,7 @@ const Home = () => {
                         See More {">>"}
                     </Link>
                 </div>
+            </div>
             </div>
             {/* sale banner here */}
             <div className="sale__banner--container mt-4">
