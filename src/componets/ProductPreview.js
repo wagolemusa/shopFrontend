@@ -12,12 +12,15 @@ function ProductPreview({ _id, name,  price, pictures, category}) {
                       
                             <h5 class="cardTitel">{name}</h5>
                         
-                        <div className="price"> 
+                        <div className="price"><br/>
                             <button type="button" class="btn btn-rounded ">UGX {price}</button>
                         </div>
-                        {/* <div className="price1"> 
-                            <button type="button" class="btn btn-rounded ">{category}</button>
-                        </div> */}
+
+                         <div className="price1"> 
+                            <Link to="/category/all">
+                                See More 
+                            </Link>
+                        </div> 
                     </Link>
                 </div>
             
