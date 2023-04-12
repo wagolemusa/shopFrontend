@@ -5,7 +5,8 @@ function ProductPreview({ _id, name,  price, pictures, category}) {
     return (
         <>
           
-                
+                <div className="row">
+                    <div className="col-md-3">
                 <div class="card1">
                     <Link to={`/product/${_id}`} style={{cursor: "pointer", width: "13rem", margin: "1"}}>
                         <img src={pictures[0].url} class="card-img-top" alt="Fissure in Sandstone" />
@@ -23,7 +24,8 @@ function ProductPreview({ _id, name,  price, pictures, category}) {
                         </div> 
                     </Link>
                 </div>
-            
+            </div>
+            </div>
         </>
     )
 }
