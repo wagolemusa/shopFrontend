@@ -103,7 +103,7 @@ function Navigation() {
                   data-mdb-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  {`${user.email}`}
+                  {`${user.name}`}
                 </a>
                 <ul
                   class="dropdown-menu dropdown-menu-end"

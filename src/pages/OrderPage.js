@@ -42,12 +42,14 @@ function OrderPage() {
     return (
         <div>
             <div className="container">
-                <h1 className="text-center">Your Orders</h1>
-                <table className="table responisve">
+                <h1 className="text-center py-3">Your Orders</h1>
+                <div class="table-responsive">
+                    <table class="table">
+
 
                     <thead>
                         <tr>
-                            <th>#</th>
+                            <th>OrderID</th>
                             <th>Status</th>
                             <th>Date</th>
                             <th>Total</th>
@@ -59,16 +61,17 @@ function OrderPage() {
                             <tr>
                                 <td>{order._id}</td>
                                 <td>
-                                <span bg={`${order.status === "processing" ? "warning" : "success"}`} text="white">
+                                <span className={`${order.status === "processing" ? "btn btn-outline-warning btn-rounded" : "btn btn-outline-success btn-rounded"}`} text="white">
                                 {order.status}
                                     </span>
                                 </td>
                                 <td>{order.date}</td>
-                                <td>${order.total}</td>
+                                <td>UGX {order.total}</td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
+            </div>
             </div>
 
         </div>

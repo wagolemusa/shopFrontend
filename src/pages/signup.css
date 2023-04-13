@@ -57,6 +57,17 @@ input[type=text] {
     margin: 0 auto;
 }
 
+input[type=number] {
+  box-sizing: border-box;
+  padding:  16px;
+  display: flex;
+  z-index: 3;
+  height: 44px;
+  background: #fff;
+  border: 1px solid transparent;
+  box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.226);
+  margin: 0 auto;
+}
 input[type=password] {
     box-sizing: border-box;
     padding:  16px;

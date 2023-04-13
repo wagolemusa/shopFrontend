@@ -4,7 +4,7 @@ import './footer.css'
 function Footer() {
     return (
         <>
-            <footer class="text-center text-white">
+            <footer class="text-center text-white py-3">
                 <div class="container p-4 pb-0">
                     <section class="">
                         <form action="">

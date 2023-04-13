@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Alert } from "react-bootstrap";
 import {useIncreaseCartProductMutation, useDecreaseCartProductMutation, useRemoveFromCartMutation} from "../services/appApi"
 import './CartPage.css'
+import { Link } from "react-router-dom";
 
 import {Elements} from '@stripe/react-stripe-js';
 import {loadStripe} from '@stripe/stripe-js';
@@ -34,20 +35,12 @@ const CartPage = () => {
         <>
             <div className="container cart-container" style={{minHight: '96vh'}}>
                 <div className="row">
-                    <div className="col-md-7">
-                        <h1 className="pt-2 h3">Shoping Cart</h1>
-                        { cart.length === 0 ?(
-                            <Alert variant="info">Shoping cart is empty. Add products to your cart</Alert>
-                        ): (
-                            <Elements stripe={stripePromise}>
-                                <CheckoutForm/>
-                            </Elements>
-                        )}
-                    </div>
-                    <div className="col-md-5">
+                   
+                    <div className="col-md-8">
                         {cart.length > 0 && (
                             <>
-                                   <table  className="table cart-table">
+                                  <div class="table-responsive">
+                                        <table class="table">
 
                                         <thead>
                                             <tr>
@@ -72,7 +65,7 @@ const CartPage = () => {
                                                     <img src={item.pictures[0].url} style={{width:80, height: 50, objectFit: 'cover'}} />
                                                 </td>
 
-                                                <td>${item.price}</td>
+                                                <td>UGX {item.price}</td>
 
                                                 <td>
                                                     <span className="quantity-indicator">
@@ -82,21 +75,48 @@ const CartPage = () => {
                                         
                                                     </span>
                                                 </td>
-                                                <td>${item.price * user.cart[item._id]}</td>
+                                                <td>UGX {item.price * user.cart[item._id]}</td>
 
                                             </tr>
                                         ))}
                                     </tbody>
                                     </table>
-
-                                    <div className="h4 pt-4">Total: ${user.cart.total}</div>
+                                    </div>
+                                    <br/>
+                                    <div className="row">
+                                        <div className="col">
+                                        <Link to="/" class="btn-login">Continue</Link>
+                                        </div>
+                                        <div className="col">
+                                        <div className="tatol btn btn-secondary btn-rounded">Total: UGX {user.cart.total}</div>
+                                        </div>
+                                    </div>
+                                   <hr/>
+                                    
                             </>     
 
                         )}
                     </div>
+                    <div className="col-md-4">
+                        
+                        
+                        { cart.length === 0 ?(
+                            <Alert variant="info">Shoping cart is empty. Add products to your cart</Alert>
+                        ): (
+                            // <Elements stripe={stripePromise}>
+                            //     <CheckoutForm/>
+                            // </Elements>
+                            <div className='cardSytle'>
+                                <h1 className="pt-2 ">Delivery Address</h1>
+                            <CheckoutForm/>
+                            
+                            </div>
+                            
+                        )}
+                    </div>
                 </div>
             </div>
-            <Footer/>
+            {/* <Footer/> */}
         </>
     )
 }
