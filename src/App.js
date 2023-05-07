@@ -25,7 +25,7 @@ function App() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    const socket = io("ws://localhost:5000");
+    const socket = io("ws://https://shop-lc32.onrender.com");
     socket.off("notification").on("notification", (msgObj, user_id) => {
 
       // logic for notication 
