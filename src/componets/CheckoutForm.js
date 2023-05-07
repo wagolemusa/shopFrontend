@@ -1,4 +1,4 @@
-import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
+// import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useReducer, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';

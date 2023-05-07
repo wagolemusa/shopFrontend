@@ -5,12 +5,12 @@ import {useIncreaseCartProductMutation, useDecreaseCartProductMutation, useRemov
 import './CartPage.css'
 import { Link } from "react-router-dom";
 
-import {Elements} from '@stripe/react-stripe-js';
-import {loadStripe} from '@stripe/stripe-js';
+// import {Elements} from '@stripe/react-stripe-js';
+// import {loadStripe} from '@stripe/stripe-js';
 import CheckoutForm from "../componets/CheckoutForm";
 import Footer from "../componets/Footer";
 
-const stripePromise = loadStripe('pk_test_51AXQQfDtSmo7ipf18rtyXOfKlXbzQBjm3hq7TQJIFFIcBbLrufa3chFTWAt17h9ck3dZX3RJagPqYxvOmRpjTIjx00P80JJDxI')
+// const stripePromise = loadStripe('pk_test_51AXQQfDtSmo7ipf18rtyXOfKlXbzQBjm3hq7TQJIFFIcBbLrufa3chFTWAt17h9ck3dZX3RJagPqYxvOmRpjTIjx00P80JJDxI')
 
 const CartPage = () => {
     const user = useSelector((state) => state.user);
