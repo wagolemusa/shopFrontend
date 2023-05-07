@@ -9,6 +9,7 @@ import './ProductPage.css'
 import SimilarProduct from "../componets/SimilarProduct";
 import { useAddToCartMutation } from "../services/appApi";
 import ToastMessage from "../componets/ToastMessage";
+import Footer from "../componets/Footer";
 
 
 function ProductPage() {
@@ -43,6 +44,7 @@ function ProductPage() {
     let similarProducts = [];
     if (similar) {
         similarProducts = similar.map((product, idx) => (
+            
             <div className="item" data-value={idx}>
                 <SimilarProduct {...product} />
             </div>
@@ -51,21 +53,22 @@ function ProductPage() {
 
     return(
         <>
-            <div className="container pt-4" style={{position: 'relative'}}>
+            <div className="container pt-4">
                 <div className="row">
-                    <div className="col-md-6">
-                    <AliceCarousel mouseTracking items={images} controlsStrategy="alternate" />
+                    <div className="col-md-6 showImage">
+                        <AliceCarousel mouseTracking items={images} controlsStrategy="alternate" />
 
                     </div>
-                    <div className="col-md-6">
+
+                    <div className="col-md-6 showProduct">
                         <h1>{product.name}</h1>
-                        <p>{product.category}</p>
-                        <p className="product_price">${product.price}</p>
+                       
                         <p style={{ textAlign: "justify" }} className="py-3">
-                            <strong>Description:</strong>{product.description}
+                            {product.description}
                         </p>
+                        
                         <div class="btn-group" role="group" aria-label="Basic example">
-                            {user && !user.isAdmin &&(
+                            {/* {user && !user.isAdmin &&(
                            
                                 <select class="form-select" style={{ width: "35%" }}>
                                 <option selected>Quantity</option>
@@ -76,21 +79,38 @@ function ProductPage() {
                                 <option>5</option>
                                 <option>6</option>
                                  </select>
-                            )}
-                              <button type="button" class="btn btn-primary" onClick={() => addToCart({ userId: user._id, productId: id, price: product.price, image: product.pictures[0].url })}>Add to Cart</button>
+                            )} */}
+                        </div>
+                      
+                        <div class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                            <div class="fw-bold">Price</div>
+                          
                             </div>
+                            <span class="btn btn-outline-secondary btn-rounded">UGX {product.price}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                            <div class="fw-bold">Category</div>
+                          
+                            </div>
+                            <span class="btn btn-outline-secondary btn-rounded">{product.category}</span>
+                        </li>
 
-                        { user && user.isAdmin && (
-                            <Link to={`/product/${product._id}/edit`}>
-                                <button>Edit</button>
-                            </Link>
-                        )}
+                      
+                         <button type="button" class="btn-primary1" onClick={() => addToCart({ userId: user._id, productId: id, price: product.price, image: product.pictures[0].url })}>Add to Cart</button>
+
+                        </div>
+                      
 
                         {isSuccess && <ToastMessage  bg="info" title="Added to cart" body={`${product.name} is in your cart`} />}
                     </div>
+
+
                 </div>
 
-                <div className="my-4">
+                <div className="my-4 similaPro">
                 <h2>Similar Products</h2>
                 <div className="d-flex justify-content-center align-items-center flex-wrap">
                     <AliceCarousel mouseTracking items={similarProducts} responsive={responsive} controlsStrategy="alternate" />
@@ -98,6 +118,7 @@ function ProductPage() {
             </div>
 
             </div>
+            <Footer />
         </>
     )
 }

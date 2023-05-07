@@ -1,0 +1,21 @@
+input[type=email] {
+    box-sizing: border-box;
+    padding:  16px;
+    display: flex;
+    z-index: 3;
+    height: 44px;
+    background: #fff;
+    border: 1px solid transparent;
+    box-shadow: 0 2px 5px 1px hwb(0 91% 0%);
+    margin: 0 auto;
+    border-color: #ffffff;
+}
+
+footer{
+    background-color: #262626;
+   
+}
+
+.foot {
+    background-color: #000000;
+}

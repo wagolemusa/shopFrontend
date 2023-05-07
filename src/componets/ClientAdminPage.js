@@ -36,7 +36,9 @@ function ClientAdminPage(){
     return (
         <div>
          
-         <table className="table responisve striped bordered hover">
+         <div class="table-responsive">
+                 <table class="table">
+
             <thead>
                 <tr>
                     <th>Client Id</th>
@@ -55,6 +57,7 @@ function ClientAdminPage(){
                 ))}
             </tbody>
             </table>
+        </div>
         </div>
     )
 }

@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logout, resetNotifications } from '../features/userSlice';
 import './navigation.css'
 import axios from '../axios';
+import log from './log.png'
+import Topbar from './Topbar';
 
 function Navigation() {
 
@@ -31,48 +33,33 @@ function Navigation() {
     if (unreadNotifications > 0) axios.post(`/users/${user._id}/updateNotifications`);
 }
   return (
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      {/* <!-- Container wrapper --> */}
-      <div class="container-fluid">
-        {/* <!-- Toggle button --> */}
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-mdb-toggle="collapse"
-          data-mdb-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <i class="fas fa-bars"></i>
-        </button>
-
+    <>
+    <Topbar/>
+    <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+            <Link class="navbar-brand mt-2 mt-lg-0" to="/">
+            <img src={log} alt='log'/>
+              
+          </Link>
         {/* <!-- Collapsible wrapper --> */}
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
           {/* <!-- Navbar brand --> */}
-          <a class="navbar-brand mt-2 mt-lg-0" href="#">
-            <img
-              src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
-              height="15"
-              alt="MDB Logo"
-              loading="lazy"
-            />
-          </a>
+
+          
           {/* <!-- Left links --> */}
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Dashboard</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Team</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Projects</a>
-            </li>
-          </ul>
-          {/* <!-- Left links --> */}
-        </div>
+       
+            <form class="d-flex input-group w-auto">
+                <input
+                    type="search"
+                    class="form-control rounded"
+                    placeholder="Search"
+                    aria-label="Search"
+                    aria-describedby="search-addon"
+                />
+                <span class="input-group-text border-0" id="search-addon">
+                    <i class="fas fa-search"></i>
+                </span>
+                </form>
+      
         {/* <!-- Collapsible wrapper --> */}
 
 
@@ -82,7 +69,7 @@ function Navigation() {
 
           {/* if there is no user */}
           {!user && (
-            <div>
+            <div className='loginButton'>
               <Link to="/login">Login</Link>
             </div>
 
@@ -116,7 +103,7 @@ function Navigation() {
                   data-mdb-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  {`${user.email}`}
+                  {`${user.name}`}
                 </a>
                 <ul
                   class="dropdown-menu dropdown-menu-end"
@@ -176,6 +163,7 @@ function Navigation() {
                 )}
             </div>
     </nav>
+    </>
   );
 }
 

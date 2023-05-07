@@ -21,10 +21,130 @@
 }
 
 
+    
+.login-box {
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,.2),0 9px 26px 0 rgba(0,0,0,.19);
+    height: 50%;
+    margin-left: 25%;
+    margin-top: 7%;
+    position: relative;
+    width: 45%;
+    line-height: 2;
+    padding: 20px;
+}
+
+.login-box1 {
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,.2),0 9px 26px 0 rgba(0,0,0,.19);
+    /* height: 50%; */
+    /* margin-left: 25%; */
+    margin-top: 7%;
+    position: relative;
+    /* width: 45%; */
+    line-height: 2;
+    padding: 20px;
+}
+
+
+input[type=text] {
+    box-sizing: border-box;
+    padding:  16px;
+    display: flex;
+    z-index: 3;
+    height: 44px;
+    background: #fff;
+    border: 1px solid transparent;
+    box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.226);
+    margin: 0 auto;
+}
+
+input[type=number] {
+  box-sizing: border-box;
+  padding:  16px;
+  display: flex;
+  z-index: 3;
+  height: 44px;
+  background: #fff;
+  border: 1px solid transparent;
+  box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.226);
+  margin: 0 auto;
+}
+input[type=password] {
+    box-sizing: border-box;
+    padding:  16px;
+    display: flex;
+    z-index: 3;
+    height: 44px;
+    background: #fff;
+    border: 1px solid transparent;
+    box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.226);
+    margin: 0 auto;
+}
+
+.btn-login{
+    padding-top: 5rem;
+    line-height: 1.25;
+    font-weight: 700;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-top: .5rem;
+    color: #ffffff;
+    padding-bottom: .5rem;
+    background-color: rgb(20, 206, 45);
+    
+    border-radius: 9999px;
+    border:  rgb(20, 206, 45);;
+}
+
+.login-box img {
+    width: 50px;
+    height: 50px;
+  }
+  .login-box1 img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .login-box1 h1{
+    color: #332D2D;
+    font-size: 40px;
+    font-weight: 600;
+  }
+  .login-box h1{
+    color: #332D2D;
+    font-size: 40px;
+    font-weight: 600;
+  }
+
+  .login-box1 p{
+    font-weight: 600;
+  }
+  .login-box p{
+    font-weight: 600;
+  }
+
+  .signupImage img{
+    width: 600px;
+  }
 @media screen and (max-width: 756px) {
     .signup__form--container,
     .login__image_conatine{
         display: none;
     }
+    .login-box {
+        margin-left: 10%;
+        position: relative;
+         width: 20rem;
+        line-height: 2;
+      
+    }
+
+    .login-box h1{
+        color: #332D2D;
+        font-size: 30px;
+        font-weight: 600;
+      }
+      .signupImage img{
+        display: none;
+      }
 
 }
