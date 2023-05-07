@@ -62,38 +62,45 @@ const OrdersAdminPage = () => {
 
     return(
         <>
-                <table className="table responisve">
+                   <div class="table-responsive">
+                 <table class="table">
 
                     <thead>
                         <tr>
-                            <th>#</th>
+                            {/* <th>#</th> */}
                             <th>Client Name</th>
                             <th>Count</th>
                             <th>Total</th>
-                            <td>Address</td>
+                            <td>District</td>
+                            <td>Town</td>
+                            <td>Phone</td>
+                            <td>Date</td>
                             <td>Status</td>                           
                         </tr>
                     </thead>
                     <tbody>
                         {orders.map((order) =>(
                             <tr>
-                                <td>{order._id}</td>
+                                {/* <td>{order._id}</td> */}
                                 <td>{order.owner?.name}</td>
                                 <td>{order.count}</td>
                                 <td>{order.total}</td>
-                                <td>{order.address}</td>
+                                <td>{order.district}</td>
+                                <td>{order.town}</td>
+                                <td>{order.phone}</td>
+                                
                                 <td>
                                 {order.status === "processing" ? (
-                                <button onClick={() => markShipped(order._id, order.owner?._id)}>Mark as shipped</button>
+                                <button onClick={() => markShipped(order._id, order.owner?._id)} class="btn btn-outline-warning btn-rounded">Mark as shipped</button>
                                 ) :(
 
-                                    <span class="badge bg-primary text-dark">Shipped</span>
+                                    <div className="btn btn-outline-success btn-rounded">shipped</div>
                                )}
                                 
                                 </td>
                                 <td>
                                     <span style={{ cursor: "pointer" }} data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={() => showOrder(order.products)}>
-                                        View order <i className="fa fa-eye"></i>
+                                        View <i className="fa fa-eye"></i>
                                     </span>
                                 </td>
                                 
@@ -107,7 +114,7 @@ const OrdersAdminPage = () => {
                     <div class="modal-dialog">
                         <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <h5 class="modal-title" id="exampleModalLabel"></h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -118,19 +125,19 @@ const OrdersAdminPage = () => {
                             <p>
                                 <span>{order.count} x </span> {order.name}
                             </p>
-                            <p>Price: ${Number(order.price) * order.count}</p>
+                            <p>Price: UGX {Number(order.price) * order.count}</p>
                         </div>
                     ))}
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                         
                         </div>
                         </div>
                     </div>
                     </div>
 
-    
+                    </div>
         </>
     )
 }

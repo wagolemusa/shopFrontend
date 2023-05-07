@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 // CREATE THE API
 export const appApi = createApi({
     reducerPath: "appApi",
-    baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000" }),
+    baseQuery: fetchBaseQuery({ baseUrl: "https://shop-lc32.onrender.com" }),
     endpoints: (builder) => ({
         
         signup: builder.mutation({

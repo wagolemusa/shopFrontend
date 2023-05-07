@@ -43,23 +43,6 @@ function NewProduct(){
         });
     }
 
-    // function showWidget(){
-    //     const widget = window.cloudinary.createUploadWidget(
-    //         {
-    //             cloudName: "xycoders",
-    //             uploadPreset: "ytvtzs3m",
-    //         },
-    //         (error, result) => {
-    //             if (!error && result.event === "success") {
-    //                 setImages((prev) => [...prev, { url: result.info.url, public_id: result.info.public_id}])
-    //             }
-    //         }
-    //     );
-    //     widget.open()
-    // }
-
-
-
     function showWidget() {
         let widget = window.cloudinary.createUploadWidget(
             {
@@ -106,7 +89,7 @@ function NewProduct(){
                     <label for="floatingTextarea2">Description</label>
                 </div>
                 <div className="form-control mb-4">
-                    <button type="button" onClick={showWidget}>Upload Images</button>
+                    <button type="button" className="btn btn-outline-primary" onClick={showWidget}>Upload Images</button>
                     <div className="images-preview-container">
                                 {images.map((image) => (
                                     <div className="image-preview">
@@ -116,7 +99,7 @@ function NewProduct(){
                                 ))}
                 </div>
                 </div>
-                <button type="submit" class="btn btn-primary" disabled={isLoading || isSuccess}>create Product</button>
+                <button type="submit" class="btn btn-success btn-rounded" disabled={isLoading || isSuccess}>create Product</button>
                 </form>                    
                 </div>
                 <div className="col-md-6 new-product__image--container">
