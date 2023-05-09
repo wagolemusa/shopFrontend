@@ -19,6 +19,7 @@ const CartPage = () => {
 
     let cart = products.filter((product) => userCartObj[product._id] != null);
    
+    console.log("cart", cart)
     const [increaseCart] = useIncreaseCartProductMutation();
     const [decreaseCart] = useDecreaseCartProductMutation();
     const [removeFromCart, { isLoading}] = useRemoveFromCartMutation();
