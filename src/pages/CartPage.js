@@ -19,8 +19,8 @@ const CartPage = () => {
     console.log("product", products)
     console.log("cart boject", userCartObj)
 
-    let cart = products.filter((product) => userCartObj[product._id] != null);
-   
+    let cart = products.filter((product) => userCartObj[product._id] != null);   
+    
     console.log("cart", cart)
     const [increaseCart] = useIncreaseCartProductMutation();
     const [decreaseCart] = useDecreaseCartProductMutation();
