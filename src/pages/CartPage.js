@@ -16,11 +16,13 @@ const CartPage = () => {
     const user = useSelector((state) => state.user);
     const products = useSelector((state) => state.products);
     const userCartObj = user.cart;
+
+    console.log("user", user)
     console.log("product", products)
     console.log("cart boject", userCartObj)
 
     let cart = products.filter((product) => userCartObj[product._id] != null);   
-    
+
     console.log("cart", cart)
     const [increaseCart] = useIncreaseCartProductMutation();
     const [decreaseCart] = useDecreaseCartProductMutation();
