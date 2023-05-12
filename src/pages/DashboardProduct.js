@@ -7,6 +7,7 @@ import './DashboardProduct.css';
 function DashboardProduct() {
 
     const products = useSelector(state => state.products)
+    console.log("Dash", products)
     const user = useSelector(state => state.user);
 
     // Removing Products
