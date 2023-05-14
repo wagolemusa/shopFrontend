@@ -6,7 +6,7 @@ const initialState = null
 
 export const userSlice = createSlice({
 
-    name: "user",
+    name: "products",
     initialState,
     reducers: {
         logout: () => initialState,

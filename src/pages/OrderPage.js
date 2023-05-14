@@ -51,6 +51,7 @@ function OrderPage() {
                         <tr>
                             <th>OrderID</th>
                             <th>Status</th>
+                            <th>Product Qty</th>
                             <th>Date</th>
                             <th>Total</th>
                             
@@ -65,6 +66,7 @@ function OrderPage() {
                                 {order.status}
                                     </span>
                                 </td>
+                                <td>{order.count}</td>
                                 <td>{order.date}</td>
                                 <td>UGX {order.total}</td>
                             </tr>

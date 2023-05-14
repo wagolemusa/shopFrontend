@@ -12,6 +12,8 @@ const OrdersAdminPage = () => {
     const [orderToshow, setOrderToShow] = useState([]);
     const [show, setShow] = useState(false)
 
+    console.log("Admin", products)
+
     const handleClose = () => setShow(false)
 
     function markShipped(orderId, ownerId){

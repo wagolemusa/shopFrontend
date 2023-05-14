@@ -20,7 +20,7 @@ const CartPage = () => {
     console.log("user", user)
     console.log("product", products)
     console.log("cart boject", userCartObj)
-
+    
     let cart = products.filter((product) => userCartObj[product._id] != null);   
 
     console.log("cart", cart)
